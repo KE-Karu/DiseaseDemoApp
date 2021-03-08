@@ -1,0 +1,145 @@
+﻿https://localhost:44314/graphql
+
+Person and it's diseases:
+
+{
+  person(id: 1){
+    name,
+  address,
+    personalDiseases{
+      dateOfGetting
+      disease{
+        id
+        diseaseName
+        description
+      }
+    }
+  }
+}
+
+
+Create Person:
+
+mutation($person : AddPersonInput!){  
+  createPerson(person : $person){
+    name,
+    dateOfBirth,
+    address,
+    gender,
+    }  
+  }
+
+{"person": 
+	{
+    "name": "Example",
+    "address": "Wonderland",
+    "dateOfBirth": "2003-08-23",
+    "gender": "Male"
+	}
+}
+
+
+Delete Person:
+
+mutation($person : ID!){  
+  deletePerson(personId : $person)
+  }
+
+{"person": 3}
+
+
+All persons:
+
+{
+  persons {
+    id
+    address,
+    name,
+    dateOfBirth,
+    gender
+  }
+}
+
+
+Update person:
+
+mutation ($person : AddPersonInput!, $personId : ID!){
+  updatePerson(person: $person, personId: $personId){
+    name
+    address
+    dateOfBirth
+    gender
+  }
+}
+
+{"person": {
+  "name": "Example2",
+  "address": "My street",
+  "gender": "XYZ"
+},
+  "personId": 1
+}
+
+
+
+Diseases:
+
+{
+  diseases {
+    id,
+    diseaseName,
+    description
+  }
+}
+
+Disease:
+
+{
+  disease(id: 1){
+    diseaseName,
+  	description
+  }
+}
+
+Create disease:
+
+mutation($disease : AddDiseaseInput!){  
+  createDisease(disease : $disease){
+    diseaseName,
+    description
+    }  
+  }
+
+  {"disease": 
+	{
+    "diseaseName": "Some",
+    "description": "And then some more"
+	}
+}
+
+AddPersonalDisease:
+
+mutation($personalDisease: AddPersonalDiseaseInput!){
+  addPersonalDisease(personalDisease: $personalDisease){
+    personId,
+    diseaseId,
+    dateOfGetting
+  }
+}
+
+{"personalDisease": {
+  "personId": 1,
+  "diseaseId": 1,
+  "dateOfGetting": "2021-07-21"
+	}
+}
+
+Persons and diseases:
+
+
+{personsDiseases{
+  dateOfGetting
+  diseaseId
+  personId
+	}
+}
