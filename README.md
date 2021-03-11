@@ -1,3 +1,3 @@
-# DiseaseDemoApp
+# DiseaseDemoApp (1/3)
 
-1/3 demo app for master thesis
+PersonsDemoApp web-api made with .Net5 and GraphQL
