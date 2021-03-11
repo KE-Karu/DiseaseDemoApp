@@ -14,9 +14,9 @@ namespace DiseasesDemoApp.AppDbContext
             }
             var persons = new Persons[]
             {
-                new Persons{ Name = "Ants Mustikas", DateOfBirth = DateTime.Parse("01-01-1997"), Address = "Viru 10", Gender = "Male"},
-                new Persons{ Name = "Tõnu Vaarikas", DateOfBirth = DateTime.Parse("02-02-1995"), Address = "Maardu 25", Gender = "Male"},
-                new Persons{ Name = "Mari Maasikas", DateOfBirth = DateTime.Parse("03-03-1993"), Address = "Lepa 32", Gender = "Femmale"}
+                new Persons{ NatIdNr = "34501234215 " , Name = "Ants Mustikas", DateOfBirth = DateTime.Parse("03-01-1945"), Address = "Viru 10", Gender = "Male"},
+                new Persons{ NatIdNr = "39502114232" , Name = "Tõnu Vaarikas", DateOfBirth = DateTime.Parse("11-02-1995"), Address = "Maardu 25", Gender = "Male"},
+                new Persons{ NatIdNr = "49403136515" , Name = "Mari Maasikas", DateOfBirth = DateTime.Parse("13-03-1994"), Address = "Lepa 32", Gender = "Femmale"}
             };
             foreach(Persons p in persons)
             {

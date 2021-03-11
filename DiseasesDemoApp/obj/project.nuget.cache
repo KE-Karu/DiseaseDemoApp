@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Wc8OUUxrs2n2MSuUkKdf7EFXvzGBBtphU2r3vM1lAi49jDDpXQ9cU0kqb8EoIYA8a4ccQ+9CenGBq0igaum2Kg==",
+  "dgSpecHash": "EoYyLDusWkyWrdNqK4reczNNfxi8K5hYH3l5WFh0gxoTc//WhHeHgV198D/6yNW2cPcYhR++F8Cfgs2pc5OghA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Karl-Erik\\Source\\Repos\\DiseaseDemoApp\\DiseasesDemoApp\\DiseasesDemoApp.csproj",
+  "projectFilePath": "C:\\Users\\Karl-Erik\\source\\repos\\DiseaseDemoApp\\DiseasesDemoApp\\DiseasesDemoApp.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Karl-Erik\\.nuget\\packages\\graphql\\3.3.2\\graphql.3.3.2.nupkg.sha512",
     "C:\\Users\\Karl-Erik\\.nuget\\packages\\graphql-parser\\5.3.3\\graphql-parser.5.3.3.nupkg.sha512",

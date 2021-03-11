@@ -12,6 +12,7 @@ namespace DiseasesDemoApp.Types
         {
             //Field(x => x.PersonId).Description("Persons Id");
             Field(x => x.Id, type: typeof(IdGraphType)).Description("Persons Id");
+            Field(x => x.NatIdNr).Description("Persons Unique National Identification Number");
             Field(x => x.Name).Description("Persons Name");
             Field(x => x.DateOfBirth).Description("Persons Date of Birth");
             Field(x => x.Address).Description("Persons Current Address");

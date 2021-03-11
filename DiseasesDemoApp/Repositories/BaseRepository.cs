@@ -30,7 +30,7 @@ namespace DiseasesDemoApp.Repositories
         public async Task Delete(int id)
         {
             if (id.ToString() is null) return;
-            var v = await GetData(id);
+            var v = await GetDataInt(id);
             if (v is null) return;
             dbSet.Remove(v);
             await db.SaveChangesAsync();
@@ -46,7 +46,7 @@ namespace DiseasesDemoApp.Repositories
         {
             if (id.ToString() is null) return null;
             //return await dbSet.AsNoTracking().SingleOrDefaultAsync(o => o.Id.Equals(id));
-            return await GetData(id);
+            return await GetDataInt(id);
         }
         public async Task<List<TData>> GetAll()
         {
@@ -63,7 +63,7 @@ namespace DiseasesDemoApp.Repositories
         internal static async Task<List<TData>> RunSqlQueryAsync(IQueryable<TData> query) =>
             await query.AsNoTracking().ToListAsync();
 
-        protected abstract Task<TData> GetData(int id);
+        protected abstract Task<TData> GetDataInt(int id);
         protected abstract TData GetDataById(TData d);
         protected bool IsInDatabase(TData d) => GetDataById(d) != null;
     }

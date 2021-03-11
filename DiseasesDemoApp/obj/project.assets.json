@@ -5932,11 +5932,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Karl-Erik\\Source\\Repos\\DiseaseDemoApp\\DiseasesDemoApp\\DiseasesDemoApp.csproj",
+      "projectUniqueName": "C:\\Users\\Karl-Erik\\source\\repos\\DiseaseDemoApp\\DiseasesDemoApp\\DiseasesDemoApp.csproj",
       "projectName": "DiseasesDemoApp",
-      "projectPath": "C:\\Users\\Karl-Erik\\Source\\Repos\\DiseaseDemoApp\\DiseasesDemoApp\\DiseasesDemoApp.csproj",
+      "projectPath": "C:\\Users\\Karl-Erik\\source\\repos\\DiseaseDemoApp\\DiseasesDemoApp\\DiseasesDemoApp.csproj",
       "packagesPath": "C:\\Users\\Karl-Erik\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Karl-Erik\\Source\\Repos\\DiseaseDemoApp\\DiseasesDemoApp\\obj\\",
+      "outputPath": "C:\\Users\\Karl-Erik\\source\\repos\\DiseaseDemoApp\\DiseasesDemoApp\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Karl-Erik\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -6018,7 +6018,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.103\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
       }
     }
   }

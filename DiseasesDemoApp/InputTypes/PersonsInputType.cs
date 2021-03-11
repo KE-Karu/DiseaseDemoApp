@@ -7,7 +7,7 @@ namespace DiseasesDemoApp.InputTypes
         public PersonsInputType()
         {
             Name = "AddPersonInput";
-            //Field<NonNullGraphType<IdGraphType>>("personId");
+            Field<NonNullGraphType<StringGraphType>>("natIdNr");
             Field<NonNullGraphType<StringGraphType>>("name");
             Field<DateGraphType>("dateOfBirth");
             Field<StringGraphType>("address");

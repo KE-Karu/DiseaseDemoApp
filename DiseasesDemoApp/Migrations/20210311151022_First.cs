@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace DiseasesDemoApp.Migrations
 {
-    public partial class first : Migration
+    public partial class First : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -27,6 +27,7 @@ namespace DiseasesDemoApp.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
+                    NatIdNr = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     DateOfBirth = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Address = table.Column<string>(type: "nvarchar(max)", nullable: true),
@@ -73,6 +74,12 @@ namespace DiseasesDemoApp.Migrations
                 name: "IX_DiseasesOfPerson_PersonId",
                 table: "DiseasesOfPerson",
                 column: "PersonId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Persons_NatIdNr",
+                table: "Persons",
+                column: "NatIdNr",
+                unique: true);
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

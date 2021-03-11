@@ -6,7 +6,8 @@ namespace DiseasesDemoApp.Models
 {
     public class Persons : UniqueEntityData
     {
-
+        [Required]
+        public string NatIdNr { get; set; }
         [Required]
         public string Name { get; set; }
         public DateTime DateOfBirth { get; set; }
