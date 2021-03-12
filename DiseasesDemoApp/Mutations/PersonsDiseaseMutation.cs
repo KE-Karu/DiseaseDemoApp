@@ -23,8 +23,8 @@ namespace DiseasesDemoApp.Mutations
                 resolve: async context =>
                 {
                     var personInput = context.GetArgument<Persons>("person");
-                    return await personRepository.Add(personInput);
-
+                    await personRepository.Add(personInput);
+                    return $"Person has been created succesfully.";
                 }
             );
 
@@ -49,8 +49,8 @@ namespace DiseasesDemoApp.Mutations
                     personInfoRetrived.DateOfBirth = personInput.DateOfBirth;
                     personInfoRetrived.Address = personInput.Address;
                     personInfoRetrived.Gender = personInput.Gender;
-
-                    return await personRepository.Update(personInfoRetrived);
+                    await personRepository.Update(personInfoRetrived);
+                    return $"Person ID {personId} with Name {personInfoRetrived.Name} has been updated succesfully.";
                 }
             );
 
@@ -83,8 +83,8 @@ namespace DiseasesDemoApp.Mutations
                 resolve: async context =>
                 {
                     var diseaseInput = context.GetArgument<Diseases>("disease");
-                    return await diseaseRepository.Add(diseaseInput);
-
+                    await diseaseRepository.Add(diseaseInput);
+                    return $"Disease has been created succesfully.";
                 }
             );
 
@@ -108,8 +108,8 @@ namespace DiseasesDemoApp.Mutations
                     diseaseInfoRetrived.DiseaseName = diseaseInput.DiseaseName;
                     diseaseInfoRetrived.Description = diseaseInput.Description;
 
-
-                    return await diseaseRepository.Update(diseaseInfoRetrived);
+                    await diseaseRepository.Update(diseaseInfoRetrived);
+                    return $"Disease ID {diseaseId} has been updated succesfully.";
                 }
             );
 
@@ -139,7 +139,34 @@ namespace DiseasesDemoApp.Mutations
                 resolve: async context =>
                 {
                     var personalDisease = context.GetArgument<PersonalDiseases>("personalDisease");
-                    return await pdRepository.Add(personalDisease);
+                    await pdRepository.Add(personalDisease);
+                    return $"Personal disease has been created succesfully.";
+                }
+            );
+
+            FieldAsync<PersonalDiseasesType>(
+                "updatePersonalDisease",
+                arguments: new QueryArguments(
+                    new QueryArgument<NonNullGraphType<DiseaseInputType>> { Name = "personalDisease" },
+                    new QueryArgument<NonNullGraphType<IdGraphType>> { Name = "personalDiseaseId" }
+                    ),
+                resolve: async context =>
+                {
+                    var pdInput = context.GetArgument<PersonalDiseases>("personalDisease");
+                    var pdId = context.GetArgument<int>("personalDiseaseId");
+
+                    var pdInfoRetrived = await pdRepository.GetById(pdId);
+                    if (pdInfoRetrived == null)
+                    {
+                        context.Errors.Add(new ExecutionError("Couldn't find Personal Disease info."));
+                        return null;
+                    }
+                    pdInfoRetrived.DiseaseId = pdInput.DiseaseId;
+                    pdInfoRetrived.PersonId = pdInput.PersonId;
+                    pdInfoRetrived.DateOfGetting = pdInput.DateOfGetting;
+
+                    await pdRepository.Update(pdInfoRetrived);
+                    return $"Personal Disease ID {pdId} has been updated succesfully.";
                 }
             );
 
