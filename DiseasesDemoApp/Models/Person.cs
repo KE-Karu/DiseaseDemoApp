@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace DiseasesDemoApp.Models
 {
-    public class Persons : UniqueEntityData
+    public class Person : UniqueEntityData
     {
         [Required]
         public string NatIdNr { get; set; }
@@ -13,6 +13,6 @@ namespace DiseasesDemoApp.Models
         public DateTime DateOfBirth { get; set; }
         public string Address { get; set; }
         public string Gender { get; set; }
-        public ICollection<PersonalDiseases> Diseases { get; set; }
+        public ICollection<PersonalDisease> Diseases { get; set; }
     }
 }

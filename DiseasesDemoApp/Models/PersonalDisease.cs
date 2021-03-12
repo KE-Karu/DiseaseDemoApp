@@ -2,12 +2,12 @@
 
 namespace DiseasesDemoApp.Models
 {
-    public class PersonalDiseases : UniqueEntityData
+    public class PersonalDisease : UniqueEntityData
     {
         public int DiseaseId { get; set; }
-        public Diseases Disease { get; set; }
+        public Disease Disease { get; set; }
         public int PersonId { get; set; }
-        public Persons Person { get; set; }
+        public Person Person { get; set; }
         //medicationId, symptoms, checkup, doctor
         public DateTime DateOfGetting { get; set; }
     }

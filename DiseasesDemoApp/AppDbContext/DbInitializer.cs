@@ -12,13 +12,13 @@ namespace DiseasesDemoApp.AppDbContext
             {
                 return;
             }
-            var persons = new Persons[]
+            var persons = new Person[]
             {
-                new Persons{ NatIdNr = "34501234215 " , Name = "Ants Mustikas", DateOfBirth = DateTime.Parse("03-01-1945"), Address = "Viru 10", Gender = "Male"},
-                new Persons{ NatIdNr = "39502114232" , Name = "Tõnu Vaarikas", DateOfBirth = DateTime.Parse("11-02-1995"), Address = "Maardu 25", Gender = "Male"},
-                new Persons{ NatIdNr = "49403136515" , Name = "Mari Maasikas", DateOfBirth = DateTime.Parse("13-03-1994"), Address = "Lepa 32", Gender = "Femmale"}
+                new Person{ NatIdNr = "34501234215 " , Name = "Ants Mustikas", DateOfBirth = DateTime.Parse("03-01-1945"), Address = "Viru 10", Gender = "Male"},
+                new Person{ NatIdNr = "39502114232" , Name = "Tõnu Vaarikas", DateOfBirth = DateTime.Parse("11-02-1995"), Address = "Maardu 25", Gender = "Male"},
+                new Person{ NatIdNr = "49403136515" , Name = "Mari Maasikas", DateOfBirth = DateTime.Parse("13-03-1994"), Address = "Lepa 32", Gender = "Femmale"}
             };
-            foreach(Persons p in persons)
+            foreach(Person p in persons)
             {
                 context.Persons.Add(p);
             }
@@ -29,13 +29,13 @@ namespace DiseasesDemoApp.AppDbContext
             {
                 return;
             }
-            var diseases = new Diseases[]
+            var diseases = new Disease[]
             {
-                new Diseases{ DiseaseName = "Diabetes", Description = "Diabetes is a lifelong condition that causes a person's blood glucose (sugar) level to become too high."},
-                new Diseases{ DiseaseName = "Pollen allergie", Description = "An allergy is a reaction the body has to a particular substance."},
-                new Diseases{ DiseaseName = "Asthma", Description = "Asthma is a common long-term condition that can cause coughing, wheezing, chest tightness and breathlessness."}
+                new Disease{ DiseaseName = "Diabetes", Description = "Diabetes is a lifelong condition that causes a person's blood glucose (sugar) level to become too high."},
+                new Disease{ DiseaseName = "Pollen allergie", Description = "An allergy is a reaction the body has to a particular substance."},
+                new Disease{ DiseaseName = "Asthma", Description = "Asthma is a common long-term condition that can cause coughing, wheezing, chest tightness and breathlessness."}
             };
-            foreach (Diseases d in diseases)
+            foreach (Disease d in diseases)
             {
                 context.Diseases.Add(d);
             }
@@ -47,13 +47,13 @@ namespace DiseasesDemoApp.AppDbContext
             {
                 return;
             }
-            var diseaseOfPerson = new PersonalDiseases[]
+            var diseaseOfPerson = new PersonalDisease[]
             {
-                new PersonalDiseases{ DiseaseId = 1, PersonId = 3},
-                new PersonalDiseases{ DiseaseId = 2, PersonId = 2},
-                new PersonalDiseases{ DiseaseId = 3, PersonId = 1}
+                new PersonalDisease{ DiseaseId = 1, PersonId = 3},
+                new PersonalDisease{ DiseaseId = 2, PersonId = 2},
+                new PersonalDisease{ DiseaseId = 3, PersonId = 1}
             };
-            foreach (PersonalDiseases pd in diseaseOfPerson)
+            foreach (PersonalDisease pd in diseaseOfPerson)
             {
                 context.DiseasesOfPerson.Add(pd);
             }

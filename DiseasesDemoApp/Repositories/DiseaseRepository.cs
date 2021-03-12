@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DiseasesDemoApp.Repositories
 {
-    public sealed class DiseaseRepository : UniqueEntityRepository<Diseases>, IDiseaseRepository
+    public sealed class DiseaseRepository : UniqueEntityRepository<Disease>, IDiseaseRepository
     {
         private readonly DiseasesDbContext context;
 
@@ -15,7 +15,7 @@ namespace DiseasesDemoApp.Repositories
             context = con;
         }
 
-        public async Task<IReadOnlyCollection<PersonalDiseases>> GetPersonsByDiseaseId(int diseaseId)
+        public async Task<IReadOnlyCollection<PersonalDisease>> GetPersonsByDiseaseId(int diseaseId)
         {
             return await context.DiseasesOfPerson.Where(o => o.DiseaseId == diseaseId).ToListAsync();
         }

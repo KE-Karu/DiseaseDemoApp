@@ -2,11 +2,11 @@
 
 namespace DiseasesDemoApp.Models
 {
-    public class Diseases : UniqueEntityData
+    public class Disease : UniqueEntityData
     {
         public string DiseaseName { get; set; }
         public string Description { get; set; }
         //medicationId
-        public ICollection<PersonalDiseases> Persons { get; set; }
+        public ICollection<PersonalDisease> Persons { get; set; }
     }
 }

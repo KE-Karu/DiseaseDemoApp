@@ -22,7 +22,7 @@ namespace DiseasesDemoApp.Mutations
                     ),
                 resolve: async context =>
                 {
-                    var personInput = context.GetArgument<Persons>("person");
+                    var personInput = context.GetArgument<Person>("person");
                     await personRepository.Add(personInput);
                     return $"Person has been created succesfully.";
                 }
@@ -36,7 +36,7 @@ namespace DiseasesDemoApp.Mutations
                     ),
                 resolve: async context =>
                 {
-                    var personInput = context.GetArgument<Persons>("person");
+                    var personInput = context.GetArgument<Person>("person");
                     var personId = context.GetArgument<int>("personId");
 
                     var personInfoRetrived = await personRepository.GetById(personId);
@@ -78,11 +78,11 @@ namespace DiseasesDemoApp.Mutations
             FieldAsync<DiseasesType>(
                 "createDisease",
                 arguments: new QueryArguments(
-                    new QueryArgument<NonNullGraphType<DiseaseInputType>> { Name = "disease" }
+                    new QueryArgument<NonNullGraphType<DiseasesInputType>> { Name = "disease" }
                     ),
                 resolve: async context =>
                 {
-                    var diseaseInput = context.GetArgument<Diseases>("disease");
+                    var diseaseInput = context.GetArgument<Disease>("disease");
                     await diseaseRepository.Add(diseaseInput);
                     return $"Disease has been created succesfully.";
                 }
@@ -91,12 +91,12 @@ namespace DiseasesDemoApp.Mutations
             FieldAsync<DiseasesType>(
                 "updateDisease",
                 arguments: new QueryArguments(
-                    new QueryArgument<NonNullGraphType<DiseaseInputType>> { Name = "disease" },
+                    new QueryArgument<NonNullGraphType<DiseasesInputType>> { Name = "disease" },
                     new QueryArgument<NonNullGraphType<IdGraphType>> { Name = "diseaseId" }
                     ),
                 resolve: async context =>
                 {
-                    var diseaseInput = context.GetArgument<Diseases>("disease");
+                    var diseaseInput = context.GetArgument<Disease>("disease");
                     var diseaseId = context.GetArgument<int>("diseaseId");
 
                     var diseaseInfoRetrived = await diseaseRepository.GetById(diseaseId);
@@ -135,10 +135,10 @@ namespace DiseasesDemoApp.Mutations
             #region Personal Diseases
             FieldAsync<PersonalDiseasesType>(
                 "addPersonalDisease",
-                arguments: new QueryArguments(new QueryArgument<NonNullGraphType<PersonalDiseaseInputType>> { Name = "personalDisease" }),
+                arguments: new QueryArguments(new QueryArgument<NonNullGraphType<PersonalDiseasesInputType>> { Name = "personalDisease" }),
                 resolve: async context =>
                 {
-                    var personalDisease = context.GetArgument<PersonalDiseases>("personalDisease");
+                    var personalDisease = context.GetArgument<PersonalDisease>("personalDisease");
                     await pdRepository.Add(personalDisease);
                     return $"Personal disease has been created succesfully.";
                 }
@@ -147,12 +147,12 @@ namespace DiseasesDemoApp.Mutations
             FieldAsync<PersonalDiseasesType>(
                 "updatePersonalDisease",
                 arguments: new QueryArguments(
-                    new QueryArgument<NonNullGraphType<DiseaseInputType>> { Name = "personalDisease" },
+                    new QueryArgument<NonNullGraphType<DiseasesInputType>> { Name = "personalDisease" },
                     new QueryArgument<NonNullGraphType<IdGraphType>> { Name = "personalDiseaseId" }
                     ),
                 resolve: async context =>
                 {
-                    var pdInput = context.GetArgument<PersonalDiseases>("personalDisease");
+                    var pdInput = context.GetArgument<PersonalDisease>("personalDisease");
                     var pdId = context.GetArgument<int>("personalDiseaseId");
 
                     var pdInfoRetrived = await pdRepository.GetById(pdId);

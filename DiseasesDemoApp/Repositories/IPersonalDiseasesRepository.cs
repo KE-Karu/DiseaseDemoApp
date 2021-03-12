@@ -2,5 +2,5 @@
 
 namespace DiseasesDemoApp.Repositories
 {
-    public interface IPersonalDiseasesRepository : IRepository<PersonalDiseases> { }
+    public interface IPersonalDiseasesRepository : IRepository<PersonalDisease> { }
 }

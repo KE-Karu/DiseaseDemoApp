@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace DiseasesDemoApp.Types
 {
-    public class DiseasesType : ObjectGraphType<Diseases>
+    public class DiseasesType : ObjectGraphType<Disease>
     {
         public DiseasesType(IDiseaseRepository diseaseRepository)
         {
@@ -13,7 +13,7 @@ namespace DiseasesDemoApp.Types
             Field(x => x.Description).Description("Description of a disease");
             Field(x => x.DiseaseName).Description("Name of the Disease");
 
-            FieldAsync<ListGraphType<PersonalDiseasesType>, IReadOnlyCollection<PersonalDiseases>>(
+            FieldAsync<ListGraphType<PersonalDiseasesType>, IReadOnlyCollection<PersonalDisease>>(
                 "personsWithDisease", "returns list of persons with this disease",
                 resolve: context =>
                 {

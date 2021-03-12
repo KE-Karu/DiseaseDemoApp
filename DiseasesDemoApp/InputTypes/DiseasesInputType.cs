@@ -2,9 +2,9 @@
 
 namespace DiseasesDemoApp.InputTypes
 {
-    public class DiseaseInputType : InputObjectGraphType
+    public class DiseasesInputType : InputObjectGraphType
     {
-        public DiseaseInputType()
+        public DiseasesInputType()
         {
             Name = "AddDiseaseInput";
             Field<StringGraphType>("diseaseName");

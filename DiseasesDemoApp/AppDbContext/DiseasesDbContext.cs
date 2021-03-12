@@ -7,9 +7,9 @@ namespace DiseasesDemoApp.AppDbContext
     {
         public DiseasesDbContext(DbContextOptions<DiseasesDbContext> options) : base(options) { }
 
-        public DbSet<Persons> Persons { get; set; }
-        public DbSet<Diseases> Diseases { get; set; }
-        public DbSet<PersonalDiseases> DiseasesOfPerson { get; set; }
+        public DbSet<Person> Persons { get; set; }
+        public DbSet<Disease> Diseases { get; set; }
+        public DbSet<PersonalDisease> DiseasesOfPerson { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
@@ -20,9 +20,9 @@ namespace DiseasesDemoApp.AppDbContext
         public static void InitializeTables(ModelBuilder builder)
         {
             if (builder is null) return;
-            builder.Entity<Persons>().ToTable(nameof(Persons)).HasIndex(i => i.NatIdNr).IsUnique();
-            builder.Entity<Diseases>().ToTable(nameof(Diseases));
-            builder.Entity<PersonalDiseases>().ToTable(nameof(DiseasesOfPerson));
+            builder.Entity<Person>().ToTable(nameof(Persons)).HasIndex(i => i.NatIdNr).IsUnique();
+            builder.Entity<Disease>().ToTable(nameof(Diseases));
+            builder.Entity<PersonalDisease>().ToTable(nameof(DiseasesOfPerson));
             //builder.Entity<PersonalDiseases>().HasKey(c => new { c.PersonId, c.DiseaseId });
         }
     }

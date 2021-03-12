@@ -4,7 +4,6 @@ using DiseasesDemoApp.Mutations;
 using DiseasesDemoApp.Repositories;
 using DiseasesDemoApp.Schemas;
 using GraphQL.Server;
-using GraphQL.Server.Ui.Playground;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -28,6 +27,7 @@ namespace DiseasesDemoApp
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddRazorPages();
             services.AddDbContext<DiseasesDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
@@ -38,8 +38,8 @@ namespace DiseasesDemoApp
                 .AddScoped<PersonsDiseaseSchema>()
                 .AddScoped<PersonsDiseaseMutation>()
                 .AddScoped<PersonsInputType>()
-                .AddScoped<DiseaseInputType>()
-                .AddScoped<PersonalDiseaseInputType>()
+                .AddScoped<DiseasesInputType>()
+                .AddScoped<PersonalDiseasesInputType>()
                 .AddGraphQL((options, provider) =>
                 {
                     options.EnableMetrics = Environment.IsDevelopment();
@@ -57,11 +57,17 @@ namespace DiseasesDemoApp
             }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            if (Environment.IsDevelopment())
+            if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+            }
+            else
+            {
+                app.UseExceptionHandler("/Error");
+                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+                app.UseHsts();
             }
             app.UseWebSockets();
 
@@ -70,9 +76,18 @@ namespace DiseasesDemoApp
             // use HTTP middleware for ChatSchema at default path /graphql
             app.UseGraphQL<PersonsDiseaseSchema>("/graphql");
             // use graphql-playground middleware at default path /ui/playground
-            app.UseGraphQLPlayground();
+            //app.UseGraphQLPlayground();
+            app.UseHttpsRedirection();
+            app.UseStaticFiles();
 
-            app.UseGraphQLPlayground(options: new GraphQLPlaygroundOptions());
+            app.UseRouting();
+
+            app.UseAuthorization();
+
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapRazorPages();
+            });
         }
     }
 }

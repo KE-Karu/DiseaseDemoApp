@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace DiseasesDemoApp.Types
 {
-    public class PersonsType : ObjectGraphType<Persons>
+    public class PersonsType : ObjectGraphType<Person>
     {
 
         public PersonsType(IPersonRepository personRepository)
@@ -18,7 +18,7 @@ namespace DiseasesDemoApp.Types
             Field(x => x.Address).Description("Persons Current Address");
             Field(x => x.Gender).Description("Gender of the Person");
 
-            FieldAsync<ListGraphType<PersonalDiseasesType>, IReadOnlyCollection<PersonalDiseases>>(
+            FieldAsync<ListGraphType<PersonalDiseasesType>, IReadOnlyCollection<PersonalDisease>>(
                 "personalDiseases", "returns list of personal diseases",
                 //arguments: new QueryArguments(new QueryArgument<IntGraphType> { Name = "personId" }),
                 resolve: context =>

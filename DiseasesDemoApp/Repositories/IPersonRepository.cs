@@ -4,8 +4,8 @@ using System.Threading.Tasks;
 
 namespace DiseasesDemoApp.Repositories
 {
-    public interface IPersonRepository : IRepository<Persons>
+    public interface IPersonRepository : IRepository<Person>
     {
-        Task<IReadOnlyCollection<PersonalDiseases>> GetDiseasesByPersonId(int id);
+        Task<IReadOnlyCollection<PersonalDisease>> GetDiseasesByPersonId(int id);
     }
 }

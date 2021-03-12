@@ -4,7 +4,7 @@ using GraphQL.Types;
 
 namespace DiseasesDemoApp.Types
 {
-    public class PersonalDiseasesType : ObjectGraphType<PersonalDiseases>
+    public class PersonalDiseasesType : ObjectGraphType<PersonalDisease>
     {
         public PersonalDiseasesType(IDiseaseRepository diseaseRepository, IPersonRepository personRepository, IPersonalDiseasesRepository pdRepository)
         {
@@ -13,12 +13,12 @@ namespace DiseasesDemoApp.Types
             Field(x => x.DiseaseId, type: typeof(IdGraphType)).Description("Disease Id");
             Field(x => x.DateOfGetting).Description("Date of Getting It");
 
-            FieldAsync<DiseasesType, Diseases>("disease", resolve: ctx =>
+            FieldAsync<DiseasesType, Disease>("disease", resolve: ctx =>
             {
                 return diseaseRepository.GetById(ctx.Source.DiseaseId);
             });
                             
-            FieldAsync<PersonsType, Persons>("person", resolve: ctx =>
+            FieldAsync<PersonsType, Person>("person", resolve: ctx =>
             {
                 return personRepository.GetById(ctx.Source.PersonId);
             });
